@@ -1,0 +1,146 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.container {
+    max-width: 31.25rem;
+    margin: 0 auto;
+    padding: 0 .9375rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* form design start  */
+.form-control {
+    margin-bottom: 1.875rem;
+}
+.form-control .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+/* global elements in form label, input, select */
+.form-control .form-group label {
+    font-weight: 600;
+    font-size: 16px;
+}
+.form-control input, 
+.form-control select {
+    padding: 0.625rem;
+    border: .0625rem solid #dee2e6;
+    border-radius: .25rem;
+    cursor: pointer;
+}
+.form-control select {
+    background: none;
+}
+.form-control select option {
+    padding: 0;
+    background:none;
+    border-radius: 0;
+}
+.form-control textarea {
+    border-radius: .25rem;
+    border: .0625rem solid #dee2e6;
+}
+.form-control .form-dropdown select:focus, 
+.form-control input:focus, 
+.form-control label:focus, 
+.form-control textarea:focus, .active{
+    outline-style: solid;
+    outline-color: #5fa3ea;
+    outline-width: .125rem;
+}
+.form-control .form-radio input:focus, 
+.form-control .form-checkbox input:focus, 
+.form-control .form-btns input:focus {
+    outline: none;
+}
+
+/* valid, invalid message  */
+.form-control .form-group .invalid-message {
+    color: #ff0000;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+.form-control .form-group .invalid-message input {
+    border: .0625rem solid #ff0000;
+}
+
+/* success message  */
+.form-control .form-group .success-message {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    color: #75b798;
+}
+.form-control .form-group .success-message input {
+    border: 2px solid #75b798;
+}
+.form-control .form-group .success-message input:focus, 
+.form-control .form-group .invalid-message input:focus {
+    outline: none;
+}
+
+/* Required icon  */
+.form-control .required::after {
+    content: "*";
+    color: #ff0000;
+    margin-left: 0.125rem;
+}
+
+/* disable fields */
+.form-control .form-group .disabled {
+    background:#e1e1e1;
+    cursor: default;
+}
+
+/* help-text  */
+.form-control .form-group .help-text {
+    font-size: 12px;
+    color:#636262ce ;
+}
+
+/* Textfield of form  */
+.form-control .form-textfield {
+    display: flex;
+    gap: 1.25rem;
+}
+.form-control .form-textfield input {
+    width: 100%;
+}
+
+/* Password field  */
+.form-control .password-toggle-icon {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* form radio  */
+.form-control .form-radio-group {
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+}
+
+/* Submt and Reset buttons  */
+.form-control .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.25rem;
+    
+}
+.form-control .form-buttons input {
+    width: 100%;
+}
+.form-control .form-buttons input:hover {
+    background-color: #e2e0e0ce;
+
+}
