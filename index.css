@@ -1,163 +1,256 @@
 body {
-    font-family: "Open Sans", sans-serif;
-    font-size: .875rem;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: #fafaff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #fafaff;
 }
 .container {
-    max-width: 31.25rem;
-    margin: 0 auto;
-    padding: 0 .9375rem;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  max-width: 31.25rem;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px,
+    rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
 }
 
 /* form design start  */
 .form-control {
-    margin-bottom: 1.875rem;
+  margin-bottom: 1.875rem;
 }
 .form-control .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+.form-control .form-group .custom-span {
+  font-size: 10px;
+  padding-left: 0.625rem;
 }
 
 /* global elements in form label, input, select */
-.form-control input, 
+.form-control input,
 .form-control select {
-    padding: 0.625rem;
-    border: .0625rem solid #dee2e6;
-    border-radius: .25rem;
-    cursor: pointer;
+  padding: 0.625rem;
+  border: 0.0625rem solid #dee2e6;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 .form-control textarea {
-    border-radius: .25rem;
-    border: .0625rem solid #dee2e6;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #dee2e6;
 }
-.form-control .form-dropdown select:focus, 
-.form-control input:focus, 
-.form-control label:focus, 
-.form-control textarea:focus, .active{
-    outline-style: solid;
-    outline-color: #5fa3ea;
-    outline-width: .125rem;
+.form-control .form-dropdown select:focus,
+.form-control input:focus,
+.form-control label:focus,
+.form-control textarea:focus,
+.active {
+  outline-style: solid;
+  outline-color: #911495;
+  outline-width: 0.125rem;
 }
-.form-control .form-radio input:focus, 
-.form-control .form-checkbox input:focus, 
+.form-control .form-radio input:focus,
+.form-control .form-checkbox input:focus,
 .form-control .form-btns input:focus {
-    outline: none;
+  outline: none;
 }
 
-/* valid, invalid message  */
+/* invalid message  */
 .form-control .form-group .invalid-message {
-    color: #ff0000;
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
+  color: #d22c2c;
 }
-.form-control .form-group .invalid-message input {
-    border: .0625rem solid #ff0000;
+.form-control .form-group .error-border {
+  border: .125rem solid #d22c2c;
 }
 
 /* success message  */
 .form-control .form-group .success-message {
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
-    color: #75b798;
+  color: #14b07d;
 }
-.form-control .form-group .success-message input {
-    border: 2px solid #75b798;
+.form-control .form-group .success-border {
+  border: .125rem solid #14b07d;
 }
-.form-control .form-group .success-message input:focus, 
-.form-control .form-group .invalid-message input:focus {
-    outline: none;
+.form-control .form-group .success-border:focus,
+.form-control .form-group .error-border:focus {
+  outline: none;
 }
 
 /* Required icon  */
 .form-control .required::after {
-    content: "*";
-    color: #ff0000;
-    margin-left: 0.125rem;
+  content: "*";
+  color: #ff0000;
+  margin-left: 0.125rem;
 }
 
 /* disable fields */
 .form-control .form-group .disabled {
-    background:#e1e1e1;
-    cursor: default;
+  background: #e1e1e1;
+  cursor: default;
 }
 
 /* help-text  */
 .form-control .form-group .help-text {
-    font-size: 12px;
-    color:#636262ce ;
+  color: #636262ce;
 }
 
 /* Textfield of form  */
 .form-control .form-textfield {
-    display: flex;
-    gap: 1.25rem;
+  display: flex;
+  gap: 1.25rem;
 }
 .form-control .form-textfield input {
-    width: 100%;
+  width: 100%;
 }
 
 /* Password field  */
 .form-control .password-toggle-icon {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* form radio  */
-.form-control .form-radio-group {
-    display: flex;
-    padding: 10px;
-    gap: 20px;
+.radio-label {
+  display: block;
+  position: relative;
+  padding-left: 1.5625rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.form-radio-group {
+  margin-top: 0.9375rem;
+  display: flex;
+  gap: 0.9375rem;
+  align-items: center;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.radio-label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.radio-label input:checked ~ .checkmark {
+  background-color: #911495;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-label input:checked ~ .checkmark:after {
+  display: block;
+}
+.radio-label .checkmark:after {
+  top: 6px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
 }
 
 /* drop-down  */
-.form-control .form-dropdown .custom-select{
-    position: relative;
-    display: block;
-    width: 100%;
-    line-height: 1.5;
-    color: #555;
-    background-color: #fff;
-    background-clip: padding-box;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+.form-control .form-dropdown .custom-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 1.5;
+  background-color: #fff;
+  appearance: none;
 }
-.form-control .form-dropdown .custom-select::after{
-    content: '\25BC'; 
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    margin-top: -7px; 
-    pointer-events: none;
-    color: #555;
+.form-control .form-dropdown .custom-select::after {
+  content: "";
+  background: url("/arrow.svg") no-repeat center;
+  background-size: 16px 16px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 24px;
+  height: 24px;
 }
 
 /* form-file  */
-.form-control .form-file input {
-    background-color: #ffffff;
+/* Hide the actual file input */
+.form-control .form-file input[type="file"] {
+  display: none;
+}
+
+.file-upload {
+  display: flex;
+}
+/* Style the label to look like a button */
+.form-control .form-file .file-label {
+  color: #fff;
+  background-color: #911495;
+  border-color: #911495;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+.form-control .form-file .file-label:hover {
+  background-color: #a130a5;
+}
+.form-control .form-file .file-label::before {
+  content: "";
+  background-image: url("/file-upload.svg");
+  background-size: .9375rem .9375rem;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: .9375rem;
+  height: .9375rem;
+  padding-right: 5px;
+  background-repeat: no-repeat;
+}
+/* Additional spacing for text inside the label */
+.form-control .form-file .file-label span {
+  padding-left: 25px;
+  font-weight: 600;
 }
 
 /* Submt and Reset buttons  */
 .form-control .form-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1.25rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.25rem;
 }
 .form-control .form-buttons input {
-    width: 100%;
-    background-color: #007bff;
-    color: white;
+  border-radius: 10px;
+  width: 100%;
+  border: 0;
+  background-color: #911495;
+  color: white;
 }
 .form-control .form-buttons input:hover {
-    background-color:#1f89fa ;
+  background-color: #a130a5;
 }
+
+
