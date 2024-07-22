@@ -69,10 +69,10 @@ body {
 
 /* success message  */
 .form-control .form-group .success-message {
-  color: #14b07d;
+  color: #15a575;
 }
 .form-control .form-group .success-border {
-  border: .125rem solid #14b07d;
+  border: .125rem solid #15a575;
 }
 .form-control .form-group .success-border:focus,
 .form-control .form-group .error-border:focus {
