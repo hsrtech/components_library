@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background-color: #fafaff;
 }
 .container {
     max-width: 31.25rem;
@@ -139,6 +140,11 @@ body {
     margin-top: -7px; 
     pointer-events: none;
     color: #555;
+}
+
+/* form-file  */
+.form-control .form-file input {
+    background-color: #ffffff;
 }
 
 /* Submt and Reset buttons  */
