@@ -1,0 +1,407 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background-color: #fefeff;
+}
+
+.container {
+  max-width: 31.25rem;
+  margin: 5rem auto;
+  padding: 2.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px,
+    rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+}
+
+/* Form design start  */
+.form-control .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+.form-group .message {
+  font-size: 0.625rem;
+  padding-left: 0.625rem;
+}
+
+/* Global elements in form label, input, select */
+label {
+  margin-bottom: 0.3125rem;
+}
+
+input,
+select,
+.multiselect-label,
+.multiselect ul {
+  padding: 0.625rem;
+  border: 0.0625rem solid #dee2e6;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+textarea {
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #dee2e6;
+}
+
+input:focus,
+#checkbox {
+  outline: none;
+}
+
+.form-dropdown select:focus,
+input:focus,
+label:focus,
+textarea:focus,
+.active {
+  outline-style: solid;
+  outline-color: #79addc;
+  outline-width: 0.125rem;
+}
+
+/* Invalid message text and error border color  */
+.invalid-message {
+  color: #ffb3c6;
+}
+
+.error-border {
+  border: 0.125rem solid #ffb3c6;
+}
+
+/* Success message text and border color */
+.success-message {
+  color: #b8e0d2;
+}
+
+.success-border {
+  border: 0.125rem solid #b8e0d2;
+}
+
+.success-border:focus,
+.error-border:focus {
+  outline: none;
+}
+
+/* Required fiels icon "*" color and position  */
+.required::after {
+  content: "*";
+  color: #ff0000;
+  margin-left: 0.125rem;
+}
+
+/* Disable state */
+.disabled {
+  background: #e1e1e1;
+  cursor: default;
+}
+
+/* Help-text  */
+.help-text {
+  color: #636262ce;
+}
+
+/* Textfield of form (name field with first and last name) */
+.form-textfield-name {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.form-textfield-name input {
+  width: 100%;
+}
+
+/* Custom radio buttons  */
+.custom-radio {
+  margin-top: 0.9375rem;
+  display: flex;
+  gap: 0.9375rem;
+  align-items: center;
+}
+
+.radio-label {
+  display: block;
+  position: relative;
+  padding-left: 1.5625rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: 2px solid #79addc;
+  border-radius: 50%;
+}
+
+.radio-label input:checked ~ .checkmark {
+  background-color: #79addc;
+}
+
+/* Create the indicator (the grey circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (outer colored circle) when checked */
+.radio-label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* white small inner circle  */
+.radio-label .checkmark:after {
+  top: 3px;
+  left: 3px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Drop-down  */
+.form-dropdown .custom-select {
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Safari and Chrome */
+  appearance: none;
+  background: url("arrow.svg") no-repeat top right;
+  background-size: 2rem;
+  background-color: #ffffff;
+  background-position-y: center;
+}
+
+/* Form custom upload file button  */
+
+/* Hide the actual file input */
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+
+/* Style the label to look like a button */
+.custom-file-upload .file-label {
+  color: #fff;
+  background-color: #79addc;
+  border-color: #79addc;
+  padding: 0.625rem;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.custom-file-upload .file-label:hover {
+  background-color: #79addc;
+}
+
+.custom-file-upload .file-label::before {
+  content: "";
+  background-image: url("file-upload.svg");
+  background-size: 20px 20px;
+  position: absolute;
+  top: 20px;
+  left: 8px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  padding-right: 0.3125rem;
+  background-repeat: no-repeat;
+}
+
+/* Additional spacing for text inside the label */
+.custom-file-upload .file-label span {
+  padding-left: 1.5625rem;
+  font-weight: 600;
+}
+
+/* checkbox  */
+.form-control .custom-checkbox {
+  flex-direction: row;
+  gap: 0.3125rem;
+  position: relative;
+  align-items: center;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  border: 0;
+  appearance: none;
+}
+
+/* Style the custom checkbox */
+.custom-checkbox label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5%;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  border: 2px solid #79addc;
+}
+
+/* Add a checkmark symbol that appears to come out of the box */
+.custom-checkbox label::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 20%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 6px;
+  height: 20px;
+  border: solid #ffffff;
+  border-width: 0 4px 4px 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Style the checkmark when the checkbox is checked */
+.custom-checkbox input[type="checkbox"]:checked + label::before {
+  background: #79addc;
+}
+
+/* Show the checkmark when the checkbox is checked */
+.custom-checkbox input[type="checkbox"]:checked + label::after {
+  opacity: 1;
+}
+
+.terms-link-text {
+  color: #79addc;
+}
+
+/* Submt and Reset buttons  */
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.25rem;
+}
+
+.form-buttons input {
+  border-radius: 0.25rem;
+  border: 0;
+  background-color: #79addc;
+  color: white;
+  font-weight: 600;
+}
+
+.form-buttons input:hover {
+  background-color: #79addc;
+}
+
+/* Hide the default checkbox */
+.checkbox-group input[type="checkbox"] {
+  display: none;
+}
+
+/* Style the container and span to make the checkbox appear properly */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Style the custom checkbox */
+.checkbox-group input[type="checkbox"] + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  border: 2px solid #79addc;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+/* Style the checkmark when the checkbox is checked */
+.checkbox-group input[type="checkbox"]:checked + label::before {
+  background: #79addc;
+  border-color: #79addc;
+}
+
+/* Add a checkmark symbol that appears to come out of the box */
+.checkbox-group input[type="checkbox"] + label::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  width: 11px;
+  height: 11px;
+  background: white;
+  transition: opacity 0.3s;
+}
+
+/* Show the checkmark when the checkbox is checked */
+.checkbox-group input[type="checkbox"]:checked + label::after {
+  opacity: 1;
+}
+
+/* Ensure the label aligns properly with the custom checkbox */
+.checkbox-group label {
+  padding-left: 30px;
+  position: relative;
+}
+
+
+/* Container for the multi-select */
+.multiselect {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.multiselect-label {
+  background: url("arrow.svg") no-repeat top right;
+  background-size: 2rem;
+  background-color: #ffffff;
+  background-position-y: center;
+}
+
+.multiselect ul {
+  list-style: none;
+}
+
+/* Custom style for the select box */
+.colors-custom-select {
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Style the options */
+.colors-custom-select option {
+  padding: 10px;
+}
+
+/* Style the selected options */
+.colors-custom-select option:checked {
+  background-color: #79addc;
+  color: white;
+}
+
+.colors-custom-select option:checked:focus {
+  visibility: hidden;
+}
