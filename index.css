@@ -39,7 +39,9 @@ label {
 }
 
 input,
-select {
+select,
+.multiselect-label,
+.multiselect ul {
   padding: 0.625rem;
   border: 0.0625rem solid #dee2e6;
   border-radius: 0.25rem;
@@ -118,7 +120,7 @@ textarea:focus,
 }
 
 /* Custom radio buttons  */
-.Custom-radio {
+.custom-radio {
   margin-top: 0.9375rem;
   display: flex;
   gap: 0.9375rem;
@@ -145,9 +147,9 @@ textarea:focus,
   position: absolute;
   top: 0;
   left: 0;
-  height: 1.25rem;
-  width: 1.25rem;
-  background-color: #eee;
+  height: 15px;
+  width: 15px;
+  border: 2px solid #79addc;
   border-radius: 50%;
 }
 
@@ -169,22 +171,25 @@ textarea:focus,
 
 /* white small inner circle  */
 .radio-label .checkmark:after {
-  top: 0.375rem;
-  left: 0.375rem;
-  width: 0.5rem;
-  height: 0.5rem;
+  top: 3px;
+  left: 3px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: white;
 }
 
 /* Drop-down  */
 .form-dropdown .custom-select {
-  -moz-appearance: none; /* Firefox */
-  -webkit-appearance: none; /* Safari and Chrome */
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Safari and Chrome */
   appearance: none;
-  background: url("/arrow.svg") no-repeat right;
-  background-size: 2.1875rem 0.9375rem;
+  background: url("arrow.svg") no-repeat top right;
+  background-size: 2rem;
   background-color: #ffffff;
+  background-position-y: center;
 }
 
 /* Form custom upload file button  */
@@ -212,14 +217,14 @@ textarea:focus,
 
 .custom-file-upload .file-label::before {
   content: "";
-  background-image: url("/file-upload.svg");
-  background-size: 0.9375rem 0.9375rem;
+  background-image: url("file-upload.svg");
+  background-size: 20px 20px;
   position: absolute;
-  top: 50%;
-  left: 10px;
+  top: 20px;
+  left: 8px;
   transform: translateY(-50%);
-  width: 0.9375rem;
-  height: 0.9375rem;
+  width: 20px;
+  height: 20px;
   padding-right: 0.3125rem;
   background-repeat: no-repeat;
 }
@@ -238,7 +243,7 @@ textarea:focus,
   align-items: center;
 }
 
-input[type="checkbox"] {
+.custom-checkbox input[type="checkbox"] {
   border: 0;
   appearance: none;
 }
@@ -264,14 +269,19 @@ input[type="checkbox"] {
   transform: translateY(-50%) rotate(45deg);
   width: 6px;
   height: 20px;
-  border: solid #79addc;
-  border-width: 0 2px 2px 0;
+  border: solid #ffffff;
+  border-width: 0 4px 4px 0;
   opacity: 0;
   transition: opacity 0.3s;
 }
 
+/* Style the checkmark when the checkbox is checked */
+.custom-checkbox input[type="checkbox"]:checked + label::before {
+  background: #79addc;
+}
+
 /* Show the checkmark when the checkbox is checked */
-input[type="checkbox"]:checked + label::after {
+.custom-checkbox input[type="checkbox"]:checked + label::after {
   opacity: 1;
 }
 
@@ -296,4 +306,102 @@ input[type="checkbox"]:checked + label::after {
 
 .form-buttons input:hover {
   background-color: #79addc;
+}
+
+/* Hide the default checkbox */
+.checkbox-group input[type="checkbox"] {
+  display: none;
+}
+
+/* Style the container and span to make the checkbox appear properly */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Style the custom checkbox */
+.checkbox-group input[type="checkbox"] + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  border: 2px solid #79addc;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+/* Style the checkmark when the checkbox is checked */
+.checkbox-group input[type="checkbox"]:checked + label::before {
+  background: #79addc;
+  border-color: #79addc;
+}
+
+/* Add a checkmark symbol that appears to come out of the box */
+.checkbox-group input[type="checkbox"] + label::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  width: 11px;
+  height: 11px;
+  background: white;
+  transition: opacity 0.3s;
+}
+
+/* Show the checkmark when the checkbox is checked */
+.checkbox-group input[type="checkbox"]:checked + label::after {
+  opacity: 1;
+}
+
+/* Ensure the label aligns properly with the custom checkbox */
+.checkbox-group label {
+  padding-left: 30px;
+  position: relative;
+}
+
+
+/* Container for the multi-select */
+.multiselect {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.multiselect-label {
+  background: url("arrow.svg") no-repeat top right;
+  background-size: 2rem;
+  background-color: #ffffff;
+  background-position-y: center;
+}
+
+.multiselect ul {
+  list-style: none;
+}
+
+/* Custom style for the select box */
+.colors-custom-select {
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Style the options */
+.colors-custom-select option {
+  padding: 10px;
+}
+
+/* Style the selected options */
+.colors-custom-select option:checked {
+  background-color: #79addc;
+  color: white;
+}
+
+.colors-custom-select option:checked:focus {
+  visibility: hidden;
 }
