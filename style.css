@@ -1,43 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
 * {
   margin: 0;
   padding: 0;
 }
 
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
 /* Base styles */
 .navbar {
+  background-color: #414375;
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 0.5em 1em;
-  max-width: 900px;
-  margin: 0 auto;
+  padding: 20px;
   justify-content: center;
+  gap: 30px;
   position: relative;
+  border-bottom: 1px solid #dbdbe6;
 }
 
 .logo img {
-  height: 40px;
+  width: 60px;
 }
 
 .nav-links {
   display: flex;
-  gap: 1em;
+  gap: 1.875rem;
 }
 
 .nav-links a {
-  color: black;
   text-decoration: none;
+  color: #edf6ff;
 }
 
 .nav-links a:focus,
 .nav-links a.active {
-  color: #055c9d;
-  text-decoration: underline;
+  color: #FFA500;
+  border-bottom: 2px solid;
   transition: all 0.3s ease-in-out;
 }
 
 #menu-toggle {
-  visibility: hidden;
+  display: none;
 }
 
 /* Hamburger menu styles */
@@ -50,14 +58,23 @@
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 2;
 }
 
 .menu-icon span {
   display: block;
   width: 100%;
   height: 3px;
-  background: black;
-  z-index: 1;
+  background: #edf6ff;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-icon span:nth-child(1) {
+  transform-origin: top left;
+}
+
+.menu-icon span:nth-child(3) {
+  transform-origin: bottom left;
 }
 
 /* Responsive styles */
@@ -71,24 +88,24 @@
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    background-color: #333;
+    background-color: #414375;
     position: absolute;
     top: 0;
     left: 0;
     padding: 1em 0;
     transition: all 0.5s;
-    padding-top: 60px;
+    padding-top: 3.75rem;
   }
 
   .nav-links a:focus,
   .nav-links a.active {
-    color: white;
-    text-decoration: none;
+    color: #edf6ff;
+    border: none;
   }
 
   .nav-links a {
     padding: 0.5em 1em;
-    color: white;
+    color: #edf6ff;
   }
 
   .menu-icon {
@@ -98,7 +115,20 @@
   #menu-toggle:checked ~ .nav-links {
     display: flex;
   }
+
+  #menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  #menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
   #menu-toggle:checked ~ .menu-icon span {
-    background-color: white;
+    background-color: #edf6ff;
   }
 }
